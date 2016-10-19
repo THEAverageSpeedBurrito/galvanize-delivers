@@ -11,6 +11,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
         <link rel="stylesheet" href="css/style.css">
+
+        <script src="js/script.js" defer></script>
     </head>
     <body>
         <!--Import jQuery before materialize.js-->
@@ -23,7 +25,7 @@
                     <a href="#" class="brand-logo">Galvanize Delivers</a>
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
                         <li>
-                            <a href="Home.html">Home</a>
+                            <a href="index.html">Home</a>
                         </li>
                     </ul>
                 </div>
@@ -32,103 +34,119 @@
             <div class="row" id="content" style="background-image: url(img/paper-texture.png)">
                 <div class="col s12 m5 offset-m1">
                     <div class="col s12 m6">
-                      <div class="card">
-                          <div class="card-image">
-                              <img src="img/ice_cream.jpg">
-                          </div>
-                          <div class="card-content">
-                              <h5>Ice Cream Biscut</h5>
-                              <p>$7.99</p>
-                          </div>
-                          <div class="card-action">
-                              <a href="#">Add to order</a>
-                          </div>
-                      </div>
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="img/ice_cream.jpg">
+                            </div>
+                            <div class="card-content">
+                                <h5>Ice Cream Biscut</h5>
+                                <p>$7.99</p>
+                            </div>
+                            <div class="card-action">
+                                <a onclick="addToOrder('Ice Cream Biscut', 7.99)">Add to order</a>
+                            </div>
+                        </div>
                     </div>
                     <div class="col s12 m6">
-                      <div class="card">
-                          <div class="card-image">
-                              <img src="img/ribs.jpg">
-                          </div>
-                          <div class="card-content">
-                              <h5>Smoked Swine</h5>
-                              <p>$14.99</p>
-                          </div>
-                          <div class="card-action">
-                              <a href="#">Add to order</a>
-                          </div>
-                      </div>
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="img/ribs.jpg">
+                            </div>
+                            <div class="card-content">
+                                <h5>Smoked Swine</h5>
+                                <p>$14.99</p>
+                            </div>
+                            <div class="card-action">
+                                <a onclick="addToOrder('Smoked Swine',     14.99)">Add to order</a>
+                            </div>
+                        </div>
                     </div>
                     <div class="col s12 m6">
-                      <div class="card">
-                          <div class="card-image">
-                              <img src="img/pizza.jpg">
-                          </div>
-                          <div class="card-content">
-                              <h5>Arugula Pie</h5>
-                              <p>$11.99</p>
-                          </div>
-                          <div class="card-action">
-                              <a href="#">Add to order</a>
-                          </div>
-                      </div>
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="img/pizza.jpg">
+                            </div>
+                            <div class="card-content">
+                                <h5>Arugula Pie</h5>
+                                <p>$11.99</p>
+                            </div>
+                            <div class="card-action">
+                                <a onclick="addToOrder('Arugula Pie', 11.99)">Add to order</a>
+                            </div>
+                        </div>
                     </div>
                     <div class="col s12 m6">
-                      <div class="card">
-                          <div class="card-image">
-                              <img src="img/burger.jpg">
-                          </div>
-                          <div class="card-content">
-                              <h5>Le Royale with Cheese</h5>
-                              <p>$8.99</p>
-                          </div>
-                          <div class="card-action">
-                              <a href="#">Add to order</a>
-                          </div>
-                      </div>
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="img/burger.jpg">
+                            </div>
+                            <div class="card-content">
+                                <h5>Royale with Cheese</h5>
+                                <p>$8.99</p>
+                            </div>
+                            <div class="card-action">
+                                <a onclick="addToOrder('Royale with Cheese', 8.99)">Add to order</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="col s12 m5">
                     <table class="striped">
-                      <thead>
-                        <th>Item</th>
-                        <th>Price</th>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>
-                            Royale with Cheese
-                          </td>
-                          <td>
-                            $8.99
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            Arugula Pie
-                          </td>
-                          <td>
-                            $11.99
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            Smoked Swine
-                          </td>
-                          <td>
-                            $14.99
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            Ice Cream Biscut
-                          </td>
-                          <td>
-                            $7.99
-                          </td>
-                        </tr>
-                      </tbody>
+                        <thead>
+                            <th>Item</th>
+                            <th>Price</th>
+                        </thead>
+                        <tbody id="reciept">
+                            <!--Dynamic reciept-->
+                        </tbody>
                     </table>
+                    <table class="bordered col s8 offset-s4">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    Subtotal
+                                </td>
+                                <td id="subtotal">
+z                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Tax
+                                </td>
+                                <td id="tax">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Total
+                                </td>
+                                <td id="total">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <form class="col s12">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">account_circle</i>
+                                <input id="name" type="text" class="validate">
+                                <label for="icon_prefix">Name</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">phone</i>
+                                <input id="phone" type="tel" class="validate">
+                                <label for="icon_telephone">Phone number</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">business</i>
+                                <input id="address" type="text" class="validate">
+                                <label for="icon_telephone">Address</label>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="col s6 offset-s3">
+                      <a class="waves-effect waves-light btn-large orange lighten-2 z-depth-1" onclick="submitOrder()">Place Order</a>
+                    </div>
                 </div>
 
             </div>
@@ -161,7 +179,5 @@
             </div>
         </footer>
 
-    </div>
-
-</body>
+    </body>
 </html>
