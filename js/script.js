@@ -1,8 +1,8 @@
 'use strict';
 $(document).ready(function(){
-  $('#subtotal').text(0);
-  $('#tax').text(0);
-  $('#total').text(0);
+  $('#subtotal').text('$0.00');
+  $('#tax').text('$0.00');
+  $('#total').text('$0.00');
 });
 
 function addToOrder (name, price) {
@@ -15,8 +15,8 @@ function addToOrder (name, price) {
   row.appendChild(nameEntry);
 
   var priceEntry = document.createElement('td');
-  priceEntry.textContent = price;
-  row.appendChild(priceEntry);
+  $(priceEntry).text(price);
+  $(row).append(priceEntry);
   tallySubtotal(price);
   calculateTax();
   calculateTotal();
@@ -26,20 +26,20 @@ function addToOrder (name, price) {
 
 function tallySubtotal (price) {
   var subtotal = $('#subtotal').text();
-  var newSub = parseFloat(subtotal) + price;
-  $('#subtotal').text(newSub);
+  var newSub = parseFloat(subtotal.substring(1)) + price;
+  $('#subtotal').text('$' + newSub.toFixed(2));
 }
 
 function calculateTax () {
-  var subtotal = $('#subtotal').text();
+  var subtotal = $('#subtotal').text().substring(1);
   subtotal = parseFloat(subtotal) * 0.08;
-  $('#tax').text(Math.round(subtotal * 100) / 100);
+  $('#tax').text('$' + subtotal.toFixed(2));
 }
 
 function calculateTotal () {
-  var subtotal = parseFloat($('#subtotal').text());
-  var tax = parseFloat($('#tax').text());
-  $('#total').text(Math.round((subtotal + tax) * 100) / 100);
+  var subtotal = parseFloat($('#subtotal').text().substring(1));
+  var tax = parseFloat($('#tax').text().substring(1));
+  $('#total').text('$' + (subtotal + tax));
 }
 
 //Form Checking
@@ -48,7 +48,7 @@ function submitOrder () {
   var name = $('#name').val();
   var phone = $('#phone').val();
   var address = $('#address').val();
-  var total = $('#total').text();;
+  var total = $('#total').text();
 
   if(name !== '' && phone !== '' && address !== '' && total !== '0') {
     alert('Good Job filling out the form');
