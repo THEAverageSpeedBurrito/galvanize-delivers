@@ -50,9 +50,11 @@ function submitOrder () {
   var address = $('#address').val();
   var total = $('#total').text();
 
-  if(name !== '' && phone !== '' && address !== '' && total !== '0') {
-    alert('Good Job filling out the form');
+  if(total === '$0.00') {
+    Materialize.toast('The cart can not be empty.', 4000);
+  }else if(name === '' || phone === '' || address === ''){
+    Materialize.toast('Please include required information.', 4000);
   }else{
-    alert('Please complete the form');
+    Materialize.toast('Order submitted!', 4000);
   }
 }
