@@ -39,7 +39,7 @@ function calculateTax () {
 function calculateTotal () {
   var subtotal = parseFloat($('#subtotal').text().substring(1));
   var tax = parseFloat($('#tax').text().substring(1));
-  $('#total').text('$' + (subtotal + tax));
+  $('#total').text('$' + (subtotal + tax).toFixed(2));
 }
 
 //Form Checking
@@ -51,10 +51,17 @@ function submitOrder () {
   var total = $('#total').text();
 
   if(total === '$0.00') {
-    Materialize.toast('The cart can not be empty.', 4000);
+    Materialize.toast('The cart can not be empty.', 4000, 'blue lighten-1');
   }else if(name === '' || phone === '' || address === ''){
-    Materialize.toast('Please include required information.', 4000);
+    Materialize.toast('Please include required information.', 4000, 'blue lighten-1');
   }else{
     Materialize.toast('Order submitted!', 4000);
+    $('#reciept').empty();
+    $('#subtotal').text('0.00');
+    $('#tax').text('0.00');
+    $('#total').text('0.00');
+    $('#name').val('');
+    $('#phone').val('');
+    $('#address').val('');
   }
 }

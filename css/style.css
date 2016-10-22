@@ -1,32 +1,51 @@
 .row {
-  margin: 0;
+    margin: 0;
 }
 
 #nav-bar {
-  padding: 15px;
-  margin: 0;
+    padding: 15px;
+    margin: 0;
 }
 
 #topimage {
-  height: 400px;
-  width: 100%;
-  text-align: center;
-  padding-top: 100px;
-  margin: 0;
-}
-#content {
-  padding: 20px 20px 0 20px;
+    height: 400px;
+    width: 100%;
+    text-align: center;
+    padding-top: 100px;
+    margin: 0;
 }
 
+#content {
+    padding: 20px 20px 0 20px;
+}
 
 .nav-wrapper {
-  padding: 0 10px 0 10px;
+    padding: 0 10px 0 10px;
 }
 
 h1 {
-  color: White;
+    color: White;
 }
 
 h5 {
-  font-size: 20px;
+    font-size: 20px;
+    text-align: center;
+}
+
+/*form styling*/
+.input-field label {
+    color: gray;
+}
+
+.input-field input[type=text]:focus+label {
+    color: orange;
+}
+
+.input-field input[type=text]:focus {
+    border-bottom: 1px solid orange;
+    box-shadow: 0 1px 0 0 orange;
+}
+
+.input-field .prefix.active {
+    color: orange;
 }
